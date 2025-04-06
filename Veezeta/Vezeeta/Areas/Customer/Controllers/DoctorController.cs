@@ -1,8 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Vezeeta.Entities.Interfaces;
-using Vezeeta.Entities.Models;
-using Vezeeta.Entities.ViewModel;
 
 namespace Vezeeta.Areas.Customer.Controllers
 {
@@ -26,6 +23,8 @@ namespace Vezeeta.Areas.Customer.Controllers
 
             return View(timeSlots);
         }
+
+        /*
         public IActionResult Upsert(int? id)
         {
 
@@ -82,9 +81,9 @@ namespace Vezeeta.Areas.Customer.Controllers
                 string fileName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
                 string productPath = Path.Combine(wwwRootPath, "images", "Doctor");
 
-                if (!string.IsNullOrEmpty(obj.Doctor.ImageUrl))
+                if (!string.IsNullOrEmpty(obj.Doctor.ImagePath))
                 {
-                    var oldImagePath = Path.Combine(wwwRootPath, obj.Doctor.ImageUrl.TrimStart('\\', '/'));
+                    var oldImagePath = Path.Combine(wwwRootPath, obj.Doctor.ImagePath.TrimStart('\\', '/'));
 
                     try
                     {
@@ -110,7 +109,7 @@ namespace Vezeeta.Areas.Customer.Controllers
                     file.CopyTo(fileStream);
                 }
 
-                obj.Doctor.ImageUrl = "/images/Doctor/" + fileName;
+                obj.Doctor.ImagePath = "/images/Doctor/" + fileName;
             }
 
             if (obj.SelectedTimeSlots != null && obj.SelectedTimeSlots.Any())
@@ -124,7 +123,7 @@ namespace Vezeeta.Areas.Customer.Controllers
 
             Console.WriteLine($"Doctor ID: {obj.Doctor.Id}");
             Console.WriteLine($"Doctor Name: {obj.Doctor.Name}");
-            Console.WriteLine($"Doctor ImageUrl: {obj.Doctor.ImageUrl}");
+            Console.WriteLine($"Doctor ImagePath: {obj.Doctor.ImagePath}");
             Console.WriteLine($"Doctor SelectedTimeSlots: {obj.Doctor.SelectedTimeSlots}");
 
             if (obj.Doctor.Id == 0)
@@ -152,7 +151,7 @@ namespace Vezeeta.Areas.Customer.Controllers
         }
 
 
-
+        */
 
 
 

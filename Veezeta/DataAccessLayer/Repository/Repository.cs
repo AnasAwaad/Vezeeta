@@ -65,6 +65,11 @@ namespace Vezeeta.DAL.Repository
             return query.ToList();
         }
 
+        public T? GetById(int id)
+        {
+            return _dbSet.Find(id);
+        }
+
         public void Remove(T entity)
         {
             _dbSet.Remove(entity);

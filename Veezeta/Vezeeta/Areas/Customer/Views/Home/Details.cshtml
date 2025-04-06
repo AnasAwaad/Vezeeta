@@ -7,7 +7,8 @@
 			{
 				var doctor = Model.First().Doctor;
 				<div class="card shadow-sm p-3 mb-4 bg-body rounded">
-					<img src="@(string.IsNullOrEmpty(doctor.ImageUrl) ? Url.Content("~/images/Doctor/doctor.svg") : doctor.ImageUrl)"
+					<img src="@(string.IsNullOrEmpty(doctor.ImagePath
+) ? Url.Content("~/images/Doctor/doctor.svg") : doctor.ImagePath)"
 						 class="card-img-top" alt="Doctor Image">
 					<div class="card-body">
 						<h5 class="card-title">Dr. @doctor.Name</h5>
@@ -41,7 +42,7 @@
 									<td>
 										@{
 											DateTime parsedDate;
-											if (DateTime.TryParse(slot.Date, out parsedDate))
+											if (DateTime.TryParse(slot.Date.ToString(), out parsedDate))
 											{
 												@parsedDate.ToString("hh:mm tt / dd-MM-yyyy")
 											}
@@ -52,7 +53,7 @@
 										}
 									</td>
 									<td>
-										@if (slot.Avaiable == true)
+										@if (!slot.IsDeleted)
 										{
 											<button class="btn btn-primary">Book</button>
 										}

@@ -2,6 +2,7 @@ using Bulky.DataAccess.Repository;
 using Microsoft.EntityFrameworkCore;
 using Vezeeta.DAL.Data;
 using Vezeeta.Entities.Interfaces;
+using Vezeeta.Presentation.Mapping;
 
 namespace Vezeeta
 {
@@ -16,6 +17,7 @@ namespace Vezeeta
             builder.Services.AddDbContext<ApplicationDbContext>
                 (options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+            builder.Services.AddAutoMapper(typeof(DomainProfile));
 
             var app = builder.Build();
 

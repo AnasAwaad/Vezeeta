@@ -1,33 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
 namespace Vezeeta.Entities.Models
 {
-    public class Doctor
+    public class Doctor : BaseEntity
     {
-        [Key]
         public int Id { get; set; }
-        [Required]
-        public string Name { get; set; }
-        [Required]
-        public string Description { get; set; }
-        [Required]
-        public string Specailized { get; set; }
-        [Required]
-        public double Price { get; set; }
-        [ValidateNever]
-        public string ImageUrl { get; set; }
-        public string SelectedTimeSlots { get; set; }
+        [MaxLength(100)]
+        public string Name { get; set; } = null!;
 
-        [ValidateNever]
+        [MaxLength(500)]
+        public string Description { get; set; } = null!;
+        [MaxLength(500)]
+        public string Specailized { get; set; } = null!;
+        [MaxLength(15)]
+        public string PhoneNumber { get; set; } = null!;
+        public string Address { get; set; } = null!;
+        public double Price { get; set; }
+        public string? ImagePath { get; set; }
+        public ICollection<TimeSlot>? TimeSlots { get; set; }
+
         [ForeignKey("ClinicID")]
-        public Clinic Clinic { get; set; }
+        public Clinic Clinic { get; set; } = null!;
         public int ClinicID { get; set; }
 
     }

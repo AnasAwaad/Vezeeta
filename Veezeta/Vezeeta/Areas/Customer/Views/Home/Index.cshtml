@@ -21,13 +21,13 @@
                 <div class="row p-2">
                     <div class="col-12 p-1">
                         <div class="card border-0 p-3 shadow border-top border-5 rounded">
-                            @if (string.IsNullOrEmpty(doc.ImageUrl))
+                            @if (string.IsNullOrEmpty(doc.ImagePath))
                             {
                                 <img src="~/images/Doctor/doctor.svg" class="card-img-top rounded" alt="@doc.Description">
                             }
                             else
                             {
-                                <img src="@doc.ImageUrl" class="card-img-top rounded" alt="@doc.Description">
+                                <img src="@doc.ImagePath" class="card-img-top rounded" alt="@doc.Description">
                             }
 
                             <div class="card-body pb-0">

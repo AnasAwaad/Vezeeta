@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "i9K6OpIVf6KWOg/EGqR7v9GtKw/zPIUibTuYLGA6qclpjz2t2tSzZni5LS2X6BqujXIYjKFiQFpUEDVJWaulpA==",
+  "dgSpecHash": "wC2w6IYMmfTTRU5nYoQUEt7sOXsOv2QVruwWS05NNcvlWqiow8cu1959HWDv3lxi7n2nCTSvOEbdkWOoHlf23g==",
   "success": true,
   "projectFilePath": "D:\\C#\\Vezeeta\\Veezeta\\Vezeeta\\Vezeeta.Presentation.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Anoos\\.nuget\\packages\\automapper\\14.0.0\\automapper.14.0.0.nupkg.sha512",
     "C:\\Users\\Anoos\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Anoos\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
     "C:\\Users\\Anoos\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",

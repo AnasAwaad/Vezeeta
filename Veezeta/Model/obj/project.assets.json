@@ -3960,11 +3960,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\C#\\Vezeeta\\Vezeeta\\Veezeta\\Model\\Vezeeta.Entities.csproj",
+      "projectUniqueName": "D:\\C#\\Vezeeta\\Veezeta\\Model\\Vezeeta.Entities.csproj",
       "projectName": "Vezeeta.Entities",
-      "projectPath": "D:\\C#\\Vezeeta\\Vezeeta\\Veezeta\\Model\\Vezeeta.Entities.csproj",
+      "projectPath": "D:\\C#\\Vezeeta\\Veezeta\\Model\\Vezeeta.Entities.csproj",
       "packagesPath": "C:\\Users\\Anoos\\.nuget\\packages\\",
-      "outputPath": "D:\\C#\\Vezeeta\\Vezeeta\\Veezeta\\Model\\obj\\",
+      "outputPath": "D:\\C#\\Vezeeta\\Veezeta\\Model\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Anoos\\AppData\\Roaming\\NuGet\\NuGet.Config",

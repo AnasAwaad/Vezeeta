@@ -5526,11 +5526,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\C#\\Vezeeta\\Vezeeta\\Veezeta\\DataAccessLayer\\Vezeeta.DAL.csproj",
+      "projectUniqueName": "D:\\C#\\Vezeeta\\Veezeta\\DataAccessLayer\\Vezeeta.DAL.csproj",
       "projectName": "Vezeeta.DAL",
-      "projectPath": "D:\\C#\\Vezeeta\\Vezeeta\\Veezeta\\DataAccessLayer\\Vezeeta.DAL.csproj",
+      "projectPath": "D:\\C#\\Vezeeta\\Veezeta\\DataAccessLayer\\Vezeeta.DAL.csproj",
       "packagesPath": "C:\\Users\\Anoos\\.nuget\\packages\\",
-      "outputPath": "D:\\C#\\Vezeeta\\Vezeeta\\Veezeta\\DataAccessLayer\\obj\\",
+      "outputPath": "D:\\C#\\Vezeeta\\Veezeta\\DataAccessLayer\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Anoos\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -5547,8 +5547,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\C#\\Vezeeta\\Vezeeta\\Veezeta\\Model\\Vezeeta.Entities.csproj": {
-              "projectPath": "D:\\C#\\Vezeeta\\Vezeeta\\Veezeta\\Model\\Vezeeta.Entities.csproj"
+            "D:\\C#\\Vezeeta\\Veezeta\\Model\\Vezeeta.Entities.csproj": {
+              "projectPath": "D:\\C#\\Vezeeta\\Veezeta\\Model\\Vezeeta.Entities.csproj"
             }
           }
         }

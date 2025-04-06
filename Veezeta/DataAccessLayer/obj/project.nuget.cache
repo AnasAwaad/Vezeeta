@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4mtSlVP6bx1YT0xpikyi8pL2e9y8lL2vojgeqkbxl28HQPJ+ReHa7ctELhdQd7JVCC2dXlDRsKVwfU32e7ps/g==",
+  "dgSpecHash": "efuDM9HBVjr2UVXVVnIINRYWBRJMHjnLE8lhS5uGO3RCSFY9FdBG8kaBY49oG/dUGw2W3JR/JWD9FXjb8XcIjg==",
   "success": true,
-  "projectFilePath": "D:\\C#\\Vezeeta\\Vezeeta\\Veezeta\\DataAccessLayer\\Vezeeta.DAL.csproj",
+  "projectFilePath": "D:\\C#\\Vezeeta\\Veezeta\\DataAccessLayer\\Vezeeta.DAL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Anoos\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Anoos\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

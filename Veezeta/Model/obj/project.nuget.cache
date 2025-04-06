@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8aUIaJAr19fqrU0m4ivwnIHq6YH5mFYQ5F7rOEF4u3LRSJD7k4/AyJcBDGc5+kJ3UwjvU7gUoV0lqp+1xOm2ng==",
+  "dgSpecHash": "51mwPz03W3STp/y8t89Rz/ts28WfYdsEiz4VQNGKvzZ7tyWJ9cVw3OybEL3xAe0E4m4Pcr5dfeDTTSJYojskfQ==",
   "success": true,
-  "projectFilePath": "D:\\C#\\Vezeeta\\Vezeeta\\Veezeta\\Model\\Vezeeta.Entities.csproj",
+  "projectFilePath": "D:\\C#\\Vezeeta\\Veezeta\\Model\\Vezeeta.Entities.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Anoos\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Anoos\\.nuget\\packages\\microsoft.aspnetcore.antiforgery\\2.3.0\\microsoft.aspnetcore.antiforgery.2.3.0.nupkg.sha512",

@@ -1,0 +1,90 @@
+﻿@model DoctorVm
+
+<div class="card shadow border-0 mt-4">
+	<div class="card-header bg-secondary bg-gradient ml-0 py-3">
+		<div class="row">
+			<div class="col-12 text-center">
+				<h2 class="text-primary">@(Model.Doctor.Id != 0 ? "Update" : "Create") Doctor</h2>
+			</div>
+		</div>
+	</div>
+	<div class="card-body p-4">
+		<form  method="post" class="row" enctype="multipart/form-data">
+			<input asp-for="Doctor.Id" hidden />
+			<input asp-for="Doctor.ImageUrl" hidden />
+
+			<div class="row">
+				<div class="col-10">
+					<div class="border pt-3 mt-4">
+						<div class="mb-3 row p-1">
+							<label asp-for="Doctor.Name" class="p-0"></label>
+							<input asp-for="Doctor.Name" class="form-control" />
+							<span asp-validation-for="Doctor.Name" class="text-danger"></span>
+						</div>
+
+						<div class="mb-3 row p-1">
+							<label asp-for="Doctor.Price" class="p-0"></label>
+							<input asp-for="Doctor.Price" class="form-control" />
+							<span asp-validation-for="Doctor.Price" class="text-danger"></span>
+						</div>
+
+						<div class="mb-3 row p-1">
+							<label asp-for="Doctor.Specailized" class="p-0"></label>
+							<input asp-for="Doctor.Specailized" class="form-control" />
+							<span asp-validation-for="Doctor.Specailized" class="text-danger"></span>
+						</div>
+
+						<div class="mb-3 row p-1">
+							<label asp-for="Doctor.Description" class="p-0 text-muted"></label>
+							<textarea asp-for="Doctor.Description" class="form-control"></textarea>
+							<span asp-validation-for="Doctor.Description" class="text-danger"></span>
+						</div>
+
+						<div class="mb-3 row p-1">
+							<label asp-for="Doctor.ImageUrl" class="p-0"></label>
+							<input type="file" name="file" class="form-control" />
+							<span asp-validation-for="Doctor.ImageUrl" class="text-danger"></span>
+						</div>
+						<div class="mb-3 row p-1">
+							<label asp-for="SelectedTimeSlots" class="p-0"></label>
+							<select asp-for="SelectedTimeSlots" asp-items="Model.TimeList" class="form-select" multiple="multiple">
+								<option disabled>--Select Time Slots--</option>
+							</select>
+							<span asp-validation-for="SelectedTimeSlots" class="text-danger"></span>
+						</div>
+						<div class="row">
+							<div class="col-6 col-md-3">
+								@if (Model.Doctor.Id != 0)
+								{
+									<button type="submit" class="btn btn-primary form-control">Update</button>
+								}
+								else
+								{
+									<button asp-controller="Home" asp-action="Index" type="submit" class="btn btn-primary form-control">Create</button>
+								}
+							</div>
+							<div class="col-6 col-md-3">
+								<a asp-controller="Doctor" asp-action="Index" class="btn btn-secondary form-control">
+									Back to list
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-2">
+					@if (!string.IsNullOrEmpty(Model.Doctor.ImageUrl))
+					{
+						<img src="@Url.Content(Model.Doctor.ImageUrl)" width="100%"
+							 style="border-radius:5px; border:1px solid #bbb9b9" />
+					}
+					else
+					{
+						<img src="~/images/default-doctor.png" width="100%"
+							 style="border-radius:5px; border:1px solid #bbb9b9" />
+					}
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

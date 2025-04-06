@@ -1,0 +1,42 @@
+﻿@model Clinic
+<div class="card shadow border-0 mt-4">
+	<div class="card-header bg-secondary bg-gradient ml-0 py-3">
+		<div class="row">
+			<div class="col-12 text-center">
+				<h2 class="text-primary">Delete Clinic</h2>
+
+			</div>
+		</div>
+	</div>
+	<div class="card-body p-4">
+		<form method="post" class="row">
+			<div class="border pt-3 mt-4">
+				<input asp-for="Id" hidden />
+
+
+				<div class="mb-3 row p-1">
+					<label asp-for="Name" class="p-0"></label>
+					<input asp-for="Name" disabled class="form-control" />
+
+				</div>
+				<div class="mb-3 row p-1">
+					<label asp-for="Location" class="p-0"></label>
+					<input asp-for="Location" disabled class="form-control" />
+
+				</div>
+				<div class="row">
+					<div class="col-6 col-md-3">
+						<button type="submit" class="btn btn-danger form-control">Delete</button>
+
+					</div>
+					<div class="col-6 col-md-3">
+						<a asp-controller="Clinic" asp-action="Index" class="btn btn-secondary form-control">
+							back to list
+						</a>
+
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

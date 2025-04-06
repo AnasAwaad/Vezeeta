@@ -45,11 +45,11 @@ namespace Vezeeta.Areas.Admin.Controllers
                 ClinicList = clinics
             };
 
-            return View(doctorViewModel);
+            return View("Form", doctorViewModel);
         }
 
         [HttpPost]
-        //[ValidateAntiForgeryToken]
+        [ValidateAntiForgeryToken]
         public IActionResult Create(DoctorFormViewModel viewModel)
         {
             if (!ModelState.IsValid)
@@ -62,7 +62,7 @@ namespace Vezeeta.Areas.Admin.Controllers
 
                 viewModel.ClinicList = clinics;
 
-                return View(viewModel);
+                return View("Form", viewModel);
             }
 
             _unitOfWork.Doctors.Add(_mapper.Map<Doctor>(viewModel));
@@ -89,11 +89,12 @@ namespace Vezeeta.Areas.Admin.Controllers
             var doctorViewModel = _mapper.Map<DoctorFormViewModel>(doctor);
             doctorViewModel.ClinicList = clinics;
 
-            return View("Create", doctorViewModel);
+
+            return View("Form", doctorViewModel);
         }
 
         [HttpPost]
-        //[ValidateAntiForgeryToken]
+        [ValidateAntiForgeryToken]
         public IActionResult Update(DoctorFormViewModel viewModel)
         {
             if (!ModelState.IsValid)
@@ -106,11 +107,13 @@ namespace Vezeeta.Areas.Admin.Controllers
 
                 viewModel.ClinicList = clinics;
 
-                return View(viewModel);
+                return View("Form", viewModel);
             }
 
-            _unitOfWork.Doctors.Update(_mapper.Map<Doctor>(viewModel));
+            var doctor = _mapper.Map<Doctor>(viewModel);
+            doctor.LastUpdatedOn = DateTime.Now;
 
+            _unitOfWork.Doctors.Update(doctor);
             _unitOfWork.Save();
 
             return RedirectToAction(nameof(Index));

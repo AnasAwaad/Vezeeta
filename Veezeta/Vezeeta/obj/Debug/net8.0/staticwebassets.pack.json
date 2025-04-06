@@ -305,6 +305,10 @@
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
+      "Id": "D:\\C#\\Vezeeta\\Veezeta\\Vezeeta\\wwwroot\\js\\validation-styling.js",
+      "PackagePath": "staticwebassets\\js\\validation-styling.js"
+    },
+    {
       "Id": "D:\\C#\\Vezeeta\\Veezeta\\Vezeeta\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },

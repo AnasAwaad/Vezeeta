@@ -1,7 +1,7 @@
 ﻿@model DoctorFormViewModel
 
 @{
-    ViewData["Title"] = "Create Doctor";
+    ViewData["Title"] = $"{(Model.Id.Equals(0)?"Create":"Update")} Doctor";
 }
 
 
@@ -12,7 +12,7 @@
     <div class="card card-solid">
         <div class="card-header row">
             <h3 class="col-sm-6">
-                Create Doctor
+                @(Model.Id.Equals(0) ? "Create" : "Update") Doctor
             </h3>
         </div>
         
@@ -20,14 +20,13 @@
 </section>
 <!-- /.content -->
 
-<form class="content" method="post" asp-action="@(Model.Id.Equals(0)?"Creata":"Update")" enctype="multipart/form-data">
+<form class="content" method="post" asp-action="@(Model.Id.Equals(0)?"Create":"Update")" enctype="multipart/form-data">
+    <input asp-for="Id" type="hidden"/>
     <div class="row">
         <div class="col-md-6">
             <div class="card card-primary">
                 <div class="card-header">
                     <h3 class="card-title">Information</h3>
-
-                    
                 </div>
                 <div class="card-body">
                     <div class="form-group">
@@ -104,3 +103,7 @@
         </div>
     </div>
 </form>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}

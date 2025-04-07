@@ -15,7 +15,6 @@ public class DomainProfile : Profile
 			.ForMember(src => src.Clinic, opt => opt.MapFrom(dest => dest.Clinic.Name));
 
 
-		CreateMap<Clinic, ClinicViewModel>();
 		CreateMap<Clinic, ClinicFormViewModel>().ReverseMap();
 
 	}

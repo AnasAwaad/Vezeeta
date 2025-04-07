@@ -1,9 +1,11 @@
 ﻿@model ClinicFormViewModel
-
+@{
+    string url = Model?.Id > 0 ? "Update" : "Create";
+}
 <form class="content" id="ClinicForm">
-    @if (Model?.Id != 0)
+    @if (Model?.Id > 0)
     {
-        <input asp-for="Id" type="hidden" />
+        <input asp-for="Id" id="clinicId" type="hidden" />
     }
 
     <div class="form-group">
@@ -20,7 +22,7 @@
     <div class="row">
         <div class="col-12">
             <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-            <button type="button" class="btn btn-primary float-right" onclick="SaveClinic()">Save</button>
+            <button type="button" class="btn btn-primary float-right" onclick="SaveClinic('/Admin/Clinic/@url')">Save</button>
         </div>
     </div>
 </form>

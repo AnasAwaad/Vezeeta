@@ -1,27 +1,35 @@
-﻿function ShowSuccessMessage(response) {
-    $('#Modal').modal('hide');
-    $('table tbody').append(response); // if response is a <tr>
+﻿
+var updatedRow;
+function OnModalSuccess(row) {
+	$('#Modal').modal('hide');
+
+	if (updatedRow == undefined) {
+		$('table tbody').append(row); // if response is a <tr>
+	} else {
+		$(updatedRow).replaceWith(row);
+	}
 }
 
-function ShowErrorMessage(response) {
+function OnModalError(response) {
     alert("Something went wrong."+response);
 }
 
 
-function SaveClinic() {
+function SaveClinic(url) {
 	let formData = {
+		Id : $('#clinicId').val(),
 		Name: $("#ClinicName").val(),
 		Location: $("#ClinicLocation").val(),
 	}
 	$.ajax({
-		url: "/Admin/Clinic/Create",
+		url,
 		type: "POST",
 		data: formData,
 		success: function (response) {
-			ShowSuccessMessage(response);
+			OnModalSuccess(response);
 		},
 		error: function (request, status, error) {
-			ShowErrorMessage(response);
+			OnModalError(error);
 		}
 	});
 }
@@ -31,7 +39,12 @@ $(document).ready(function () {
 		var item = $(this);
 		var myModal = $('#Modal');
 		var title = item.data('title');
-		var url = item.data('url')
+		var url = item.data('url');
+
+		// replace old row with new row when update clinic 
+		if (item.data('update') != undefined) {
+			updatedRow = item.parents('tr');
+		}
 
 		myModal.find('#ModalTitle').text(title);
 

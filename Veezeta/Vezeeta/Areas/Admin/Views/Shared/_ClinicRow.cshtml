@@ -1,8 +1,20 @@
-﻿@model ClinicViewModel
+﻿@model ClinicFormViewModel
 
 <tr>
 	<td>@Model.Name</td>
 	<td>@Model.Location</td>
-	<td>11-7-2014</td>
+	<td><span class="badge bg-@(Model.IsDeleted ? "danger" : "success")">@(Model.IsDeleted ? "Deleted" : "Active")</span></td>
+	<td>@Model.LastUpdatedOn</td>
+	<td>
+		<div class="dropdown">
+			<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu" data-bs-toggle="dropdown" aria-expanded="false">
+				Actions
+			</button>
+			<ul class="dropdown-menu" aria-labelledby="dropdownMenu">
+				<li><a class="dropdown-item js-render-modal" data-url="Clinic/Update/@Model.Id" data-update="true" data-title="Update Clinic">Update</a></li>
+				<li><a class="dropdown-item cursor-pointer" href="#">Toggle Status</a></li>
+			</ul>
+		</div>
+	</td>
 
 </tr>

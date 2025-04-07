@@ -2,7 +2,7 @@
 
 namespace Vezeeta.Entities.Models
 {
-	public class Clinic
+	public class Clinic : BaseEntity
 	{
 		public int Id { get; set; }
 		[StringLength(100)]

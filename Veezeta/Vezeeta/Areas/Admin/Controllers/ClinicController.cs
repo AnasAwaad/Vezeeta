@@ -40,17 +40,13 @@ public class ClinicController : Controller
 		{
 			return BadRequest();
 		}
-		_unitOfWork.Clinics.Add(_mapper.Map<Clinic>(viewModel));
+
+		var clinic = _mapper.Map<Clinic>(viewModel);
+		_unitOfWork.Clinics.Add(clinic);
 
 		_unitOfWork.Save();
 
-		var clincVM = new ClinicFormViewModel
-		{
-			Location = viewModel.Location,
-			Name = viewModel.Name
-		};
-
-		return PartialView("_ClinicRow", clincVM);
+		return PartialView("_ClinicRow", _mapper.Map<ClinicFormViewModel>(clinic));
 	}
 
 

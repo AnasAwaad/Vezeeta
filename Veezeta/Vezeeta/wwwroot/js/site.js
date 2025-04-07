@@ -1,15 +1,26 @@
 ﻿
 var updatedRow;
+var table;
+
 function OnModalSuccess(row) {
 	$('#Modal').modal('hide');
 
-	if (updatedRow == undefined) {
-		$('table tbody').append(row); // if response is a <tr>
+	
+	var $row = $(row);
+	var rowData = [];
+
+	// Extract all <td> cells HTML from the new row
+	$row.find('td').each(function () {
+		rowData.push($(this).html());
+	});
+
+	if (updatedRow === undefined) {
+		table.row.add(rowData).draw(false)
 	} else {
-		$(updatedRow).replaceWith(row);
+		table.row(updatedRow).data(rowData).draw(false);
+		updatedRow = undefined;
 	}
 }
-
 function OnModalError(response) {
     alert("Something went wrong."+response);
 }
@@ -74,4 +85,7 @@ $(document).ready(function () {
 			}
 		})
 	})
+
+
+	table = $('.js-dataTable').DataTable();
 })

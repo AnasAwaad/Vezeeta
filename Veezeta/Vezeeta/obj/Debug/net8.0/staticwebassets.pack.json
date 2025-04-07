@@ -489,6 +489,46 @@
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
+      "Id": "D:\\C#\\Vezeeta\\Veezeta\\Vezeeta\\wwwroot\\lib\\datatables\\css\\dataTables.bootstrap4.css",
+      "PackagePath": "staticwebassets\\lib\\datatables\\css\\dataTables.bootstrap4.css"
+    },
+    {
+      "Id": "D:\\C#\\Vezeeta\\Veezeta\\Vezeeta\\wwwroot\\lib\\datatables\\css\\dataTables.bootstrap4.min.css",
+      "PackagePath": "staticwebassets\\lib\\datatables\\css\\dataTables.bootstrap4.min.css"
+    },
+    {
+      "Id": "D:\\C#\\Vezeeta\\Veezeta\\Vezeeta\\wwwroot\\lib\\datatables\\images\\sort_asc.png",
+      "PackagePath": "staticwebassets\\lib\\datatables\\images\\sort_asc.png"
+    },
+    {
+      "Id": "D:\\C#\\Vezeeta\\Veezeta\\Vezeeta\\wwwroot\\lib\\datatables\\images\\sort_asc_disabled.png",
+      "PackagePath": "staticwebassets\\lib\\datatables\\images\\sort_asc_disabled.png"
+    },
+    {
+      "Id": "D:\\C#\\Vezeeta\\Veezeta\\Vezeeta\\wwwroot\\lib\\datatables\\images\\sort_both.png",
+      "PackagePath": "staticwebassets\\lib\\datatables\\images\\sort_both.png"
+    },
+    {
+      "Id": "D:\\C#\\Vezeeta\\Veezeta\\Vezeeta\\wwwroot\\lib\\datatables\\images\\sort_desc.png",
+      "PackagePath": "staticwebassets\\lib\\datatables\\images\\sort_desc.png"
+    },
+    {
+      "Id": "D:\\C#\\Vezeeta\\Veezeta\\Vezeeta\\wwwroot\\lib\\datatables\\images\\sort_desc_disabled.png",
+      "PackagePath": "staticwebassets\\lib\\datatables\\images\\sort_desc_disabled.png"
+    },
+    {
+      "Id": "D:\\C#\\Vezeeta\\Veezeta\\Vezeeta\\wwwroot\\lib\\datatables\\js\\dataTables.bootstrap4.js",
+      "PackagePath": "staticwebassets\\lib\\datatables\\js\\dataTables.bootstrap4.js"
+    },
+    {
+      "Id": "D:\\C#\\Vezeeta\\Veezeta\\Vezeeta\\wwwroot\\lib\\datatables\\js\\dataTables.bootstrap4.min.js",
+      "PackagePath": "staticwebassets\\lib\\datatables\\js\\dataTables.bootstrap4.min.js"
+    },
+    {
+      "Id": "D:\\C#\\Vezeeta\\Veezeta\\Vezeeta\\wwwroot\\lib\\datatables\\js\\jquery.dataTables.min.js",
+      "PackagePath": "staticwebassets\\lib\\datatables\\js\\jquery.dataTables.min.js"
+    },
+    {
       "Id": "D:\\C#\\Vezeeta\\Veezeta\\Vezeeta\\wwwroot\\lib\\jquery-ajax-unobtrusive\\jquery.unobtrusive-ajax.js",
       "PackagePath": "staticwebassets\\lib\\jquery-ajax-unobtrusive\\jquery.unobtrusive-ajax.js"
     },

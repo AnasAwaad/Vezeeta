@@ -40,7 +40,7 @@ namespace Vezeeta.DAL.Repository
 			return query?.FirstOrDefault();
 		}
 
-		public IEnumerable<T> GetAll(Expression<Func<T, bool>>? filter = null, string? properties = null, bool track = true)
+		public IEnumerable<T> GetAll(Expression<Func<T, bool>>? filter = null, string? properties = null, bool track = true, int? pageNumber = null, int? pageSize = null)
 		{
 			IQueryable<T> query = _dbSet;
 
@@ -61,6 +61,14 @@ namespace Vezeeta.DAL.Repository
 					query = query.Include(includeProp);
 				}
 			}
+
+			if (pageNumber is not null && pageSize is not null)
+			{
+				query = query.Skip((pageNumber.Value - 1) * pageSize.Value).Take(pageSize.Value);
+			}
+
+
+
 			return query.ToList();
 		}
 
@@ -82,6 +90,16 @@ namespace Vezeeta.DAL.Repository
 		public void Update(T entity)
 		{
 			_dbSet.Update(entity);
+		}
+
+		public int CountAll(Expression<Func<T, bool>>? filter = null)
+		{
+			IQueryable<T> query = _dbSet;
+
+			if (filter is not null)
+				query = _dbSet.Where(filter);
+
+			return _dbSet.Count();
 		}
 	}
 }

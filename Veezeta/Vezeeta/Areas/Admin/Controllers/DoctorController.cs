@@ -21,12 +21,22 @@ namespace Vezeeta.Areas.Admin.Controllers
 			_webHostEnvironment = webHostEnvironment;
 			_mapper = mapper;
 		}
-		public IActionResult Index()
+		public IActionResult Index(int pageNumber = 1, int pageSize = 10)
 		{
 
-			var doctors = _unitOfWork.Doctors.GetAll(filter: d => !d.IsDeleted, properties: "TimeSlots,Clinic", track: false);
+			var doctors = _unitOfWork.Doctors.GetAll(
+				filter: d => !d.IsDeleted,
+				properties: "TimeSlots,Clinic",
+				track: false,
+				pageNumber = pageNumber,
+				pageSize = pageSize);
 
+			var totalCount = _unitOfWork.Doctors.CountAll();
 			var mappedDoctors = _mapper.Map<IEnumerable<DoctorViewModel>>(doctors).ToList();
+
+
+			ViewBag.CurrentPage = pageNumber;
+			ViewBag.TotalPages = (int)Math.Ceiling((double)totalCount / pageSize);
 
 			return View(mappedDoctors);
 		}
@@ -120,7 +130,7 @@ namespace Vezeeta.Areas.Admin.Controllers
 		}
 
 
-		//[HttpPost]
+		[HttpPost]
 		public IActionResult Delete(int id)
 		{
 			var doctor = _unitOfWork.Doctors.GetById(id);

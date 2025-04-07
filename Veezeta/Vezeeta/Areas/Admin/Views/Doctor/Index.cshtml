@@ -16,7 +16,7 @@
 			</h3>
 			<div class="col-sm-6 d-flex justify-content-end">
 				<a asp-area="Admin" asp-controller="Doctor" asp-action="Create" class="btn btn-md btn-primary">
-					<i class="fas fa-user"></i> Create
+					<i class="fas fa-pen"></i> Create
 				</a>
 			</div>
 		</div>
@@ -65,10 +65,10 @@
 								<div class="card-footer">
 									<div class="text-right">
 										<a asp-action="Update" asp-route-id="@doctor.Id" class="btn btn-sm btn-primary">
-											<i class="fas fa-user"></i> Update
+											<i class="fas fa-edit"></i> Update
 										</a>
 										<a asp-action="Details" asp-route-id="@doctor.Id" class="btn btn-sm btn-success">
-											<i class="fas fa-user"></i> Profile
+											<i class="fas fa-user-alt"></i> Profile
 										</a>
 									</div>
 								</div>
@@ -80,19 +80,33 @@
 			</div>
 			<!-- /.card-body -->
 			<div class="card-footer">
-				<nav aria-label="Contacts Page Navigation">
+				<nav>
 					<ul class="pagination justify-content-center m-0">
-						<li class="page-item active"><a class="page-link" href="#">1</a></li>
-						<li class="page-item"><a class="page-link" href="#">2</a></li>
-						<li class="page-item"><a class="page-link" href="#">3</a></li>
-						<li class="page-item"><a class="page-link" href="#">4</a></li>
-						<li class="page-item"><a class="page-link" href="#">5</a></li>
-						<li class="page-item"><a class="page-link" href="#">6</a></li>
-						<li class="page-item"><a class="page-link" href="#">7</a></li>
-						<li class="page-item"><a class="page-link" href="#">8</a></li>
+						<!-- Previous -->
+						<li class="page-item @(ViewBag.CurrentPage == 1 ? "disabled" : "")">
+							<a class="page-link" href="?pageNumber=@(ViewBag.CurrentPage - 1)" aria-label="Previous">
+								<span aria-hidden="true">&laquo;</span> <!-- Left arrow -->
+							</a>
+						</li>
+
+						<!-- Page Numbers -->
+						@for (int i = 1; i <= ViewBag.TotalPages; i++)
+						{
+							<li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
+								<a class="page-link" href="?pageNumber=@i">@i</a>
+							</li>
+						}
+
+						<!-- Next -->
+						<li class="page-item @(ViewBag.CurrentPage == ViewBag.TotalPages ? "disabled" : "")">
+							<a class="page-link" href="?pageNumber=@(ViewBag.CurrentPage + 1)" aria-label="Next">
+								<span aria-hidden="true">&raquo;</span> <!-- Right arrow -->
+							</a>
+						</li>
 					</ul>
 				</nav>
 			</div>
+
 			<!-- /.card-footer -->
 			<!-- /.card -->
 		}

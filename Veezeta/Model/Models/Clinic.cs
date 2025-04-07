@@ -2,14 +2,15 @@
 
 namespace Vezeeta.Entities.Models
 {
-    public class Clinic
-    {
-        [Key]
-        public int Id { get; set; }
-        [Required]
-        public string Name { get; set; }
-        [Required]
-        public string Location { get; set; }
+	public class Clinic
+	{
+		public int Id { get; set; }
+		[StringLength(100)]
+		public string Name { get; set; } = null!;
 
-    }
+		[StringLength(400)]
+		public string Location { get; set; } = null!;
+
+		public ICollection<Doctor>? Doctors { get; set; }
+	}
 }

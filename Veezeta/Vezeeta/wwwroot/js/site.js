@@ -1,4 +1,16 @@
-﻿// Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿function ShowSuccessMessage(response) {
+    $('#Modal').modal('hide');
+    $('table tbody').append(response); // if response is a <tr>
+}
 
-// Write your JavaScript code.
+function ShowErrorMessage(xhr) {
+    alert("Something went wrong.");
+}
+
+function onBegin() {
+    console.log("Submitting...");
+}
+
+function onComplete() {
+    console.log("Done.");
+}

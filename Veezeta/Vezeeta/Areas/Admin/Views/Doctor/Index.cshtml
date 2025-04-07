@@ -110,16 +110,15 @@
 			<!-- /.card-footer -->
 			<!-- /.card -->
 		}
-		
+
+	</div>
 
 </section>
 <!-- /.content -->
-</div>
-
-@section Scripts{
+@section Scripts {
 	<script>
 		$(document).ready(function () {
-			$('.js-delete-doctor').on('click',function(){
+			$('.js-delete-doctor').on('click', function () {
 				var btn = $(this);
 				var id = btn.data('doctor-id')
 				$.post({

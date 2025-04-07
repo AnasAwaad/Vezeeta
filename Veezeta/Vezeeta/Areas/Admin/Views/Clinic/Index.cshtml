@@ -1,0 +1,96 @@
+﻿@model IEnumerable<ClinicViewModel>
+
+@{
+	ViewData["Title"] = "Clinics";
+}
+
+
+<!-- Main content -->
+<section class="content">
+
+	<!-- Default box -->
+	<div class="card card-solid">
+		<div class="card-header row">
+			<h3 class="col-sm-6">
+				Clinics
+			</h3>
+			<div class="col-sm-6 d-flex justify-content-end">
+				<a class="btn btn-md btn-primary js-render-modal" data-url="Clinic/Create" data-title="Create Clinic">
+					<i class="fas fa-pen"></i> Create
+				</a>
+			</div>
+		</div>
+
+		@if (!Model.Any())
+		{
+			<div class="alert alert-warning alert-dismissible m-3">
+				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+				<h5><i class="icon fas fa-exclamation-triangle"></i> Warning!</h5>
+				No Clinics Available
+			</div>
+		}
+		else
+		{
+			<div class="card-body pb-0">
+                <div class="card-body table-responsive p-0">
+                    <table class="table table-hover text-nowrap">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Location</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var clinic in Model)
+							{
+								<partial name="myclinic" model="clinic" />
+							}
+                            
+                        </tbody>
+                    </table>
+                </div>
+			</div>
+
+		}
+
+	</div>
+
+
+</section>
+<!-- /.content -->
+
+@section Scripts{
+	<partial name="_ValidationScriptsPartial"/>
+	<script>
+		
+		$(document).ready(function () {
+			$('.js-render-modal').on('click', function () {
+				var item = $(this);
+				var myModal = $('#Modal');
+				var title = item.data('title');
+				var url = item.data('url')
+
+				myModal.find('#ModalTitle').text(title);
+
+				$.get({
+					url:url,
+					success: function (form) {
+						myModal.find('#ModalBody').html(form);
+						$.validator.unobtrusive.parse(myModal);
+					},
+					error: function (e) {
+						alert(e);
+					}
+				})
+				myModal.modal('show');
+
+
+			})
+
+				
+
+		})
+
+	</script>
+}

@@ -105,7 +105,15 @@
 					<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 						<!-- Add icons to the links using the .nav-icon class
 							 with font-awesome or any other icon font library -->
+						<li class="nav-item">
+							<a asp-area="Admin" asp-controller="Clinic" asp-action="Index" class="nav-link">
+								<i class="nav-icon fas fa-user-md"></i>
+								<p>
+									Clinic
+								</p>
+							</a>
 
+						</li>
 						<li class="nav-item">
 							<a asp-area="Admin" asp-controller="Doctor" asp-action="Index" class="nav-link">
 								<i class="nav-icon fas fa-user-md"></i>
@@ -160,7 +168,14 @@
 		</aside>
 		<!-- /.control-sidebar -->
 	</div>
+
+	@* Modal *@
+	<partial name="_Modal"/>
+
+
 	<!-- ./wrapper -->
+	<!-- global site.js -->
+	<script src="~/js/site.js"></script>
 	<!-- jQuery -->
 	<script src="~/plugins/jquery/jquery.min.js"></script>
 	<!-- Bootstrap 4 -->

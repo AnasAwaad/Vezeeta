@@ -3,14 +3,50 @@
     $('table tbody').append(response); // if response is a <tr>
 }
 
-function ShowErrorMessage(xhr) {
-    alert("Something went wrong.");
+function ShowErrorMessage(response) {
+    alert("Something went wrong."+response);
 }
 
-function onBegin() {
-    console.log("Submitting...");
+
+function SaveClinic() {
+	let formData = {
+		Name: $("#ClinicName").val(),
+		Location: $("#ClinicLocation").val(),
+	}
+	$.ajax({
+		url: "/Admin/Clinic/Create",
+		type: "POST",
+		data: formData,
+		success: function (response) {
+			ShowSuccessMessage(response);
+		},
+		error: function (request, status, error) {
+			ShowErrorMessage(response);
+		}
+	});
 }
 
-function onComplete() {
-    console.log("Done.");
-}
+$(document).ready(function () {
+	$('.js-render-modal').on('click', function () {
+		var item = $(this);
+		var myModal = $('#Modal');
+		var title = item.data('title');
+		var url = item.data('url')
+
+		myModal.find('#ModalTitle').text(title);
+
+		$.get({
+			url: url,
+			success: function (form) {
+				myModal.find('#ModalBody').html(form);
+				$.validator.unobtrusive.parse(myModal);
+			},
+			error: function (e) {
+				alert(e);
+			}
+		})
+		myModal.modal('show');
+
+
+	})
+})

@@ -41,10 +41,10 @@
                                 <th>Actions</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="ClinicRows">
                             @foreach (var clinic in Model)
 							{
-								<partial name="myclinic" model="clinic" />
+								<partial name="_ClinicRow" model="clinic" />
 							}
                             
                         </tbody>
@@ -62,35 +62,4 @@
 
 @section Scripts{
 	<partial name="_ValidationScriptsPartial"/>
-	<script>
-		
-		$(document).ready(function () {
-			$('.js-render-modal').on('click', function () {
-				var item = $(this);
-				var myModal = $('#Modal');
-				var title = item.data('title');
-				var url = item.data('url')
-
-				myModal.find('#ModalTitle').text(title);
-
-				$.get({
-					url:url,
-					success: function (form) {
-						myModal.find('#ModalBody').html(form);
-						$.validator.unobtrusive.parse(myModal);
-					},
-					error: function (e) {
-						alert(e);
-					}
-				})
-				myModal.modal('show');
-
-
-			})
-
-				
-
-		})
-
-	</script>
 }

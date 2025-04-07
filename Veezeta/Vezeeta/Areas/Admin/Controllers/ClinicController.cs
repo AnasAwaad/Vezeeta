@@ -34,11 +34,11 @@ public class ClinicController : Controller
 
 	[HttpPost]
 	//[ValidateAntiForgeryToken]
-	public IActionResult Create([FromForm] ClinicFormViewModel viewModel)
+	public IActionResult Create(ClinicFormViewModel viewModel)
 	{
 		if (!ModelState.IsValid)
 		{
-			return View("_Form", viewModel);
+			return BadRequest();
 		}
 		_unitOfWork.Clinics.Add(_mapper.Map<Clinic>(viewModel));
 
@@ -50,6 +50,6 @@ public class ClinicController : Controller
 			Name = viewModel.Name
 		};
 
-		return Ok();
+		return PartialView("_ClinicRow", clincVM);
 	}
 }

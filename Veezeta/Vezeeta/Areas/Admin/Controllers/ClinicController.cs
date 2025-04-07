@@ -79,4 +79,18 @@ public class ClinicController : Controller
 
 		return PartialView("_ClinicRow", _mapper.Map<ClinicFormViewModel>(clinic));
 	}
+
+	[HttpPost]
+	public IActionResult ToggleStatus(int id)
+	{
+		var clinic = _unitOfWork.Clinics.GetById(id);
+		if (clinic is null)
+			return NotFound();
+		clinic.IsDeleted = !clinic.IsDeleted;
+		clinic.LastUpdatedOn = DateTime.Now;
+
+		_unitOfWork.Save();
+
+		return PartialView("_ClinicRow", _mapper.Map<ClinicFormViewModel>(clinic));
+	}
 }

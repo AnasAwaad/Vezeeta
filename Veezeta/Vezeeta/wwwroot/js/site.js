@@ -35,7 +35,7 @@ function SaveClinic(url) {
 }
 
 $(document).ready(function () {
-	$('.js-render-modal').on('click', function () {
+	$(document).on('click', '.js-render-modal', function () {
 		var item = $(this);
 		var myModal = $('#Modal');
 		var title = item.data('title');
@@ -60,6 +60,18 @@ $(document).ready(function () {
 		})
 		myModal.modal('show');
 
+	})
 
+
+
+	$(document).on('click', '.js-toggle-status', function () {
+		var btn = $(this);
+		$.post({
+			url: btn.data('url'),
+			success: function (row) {
+				updatedRow = btn.parents('tr');
+				OnModalSuccess(row);
+			}
+		})
 	})
 })

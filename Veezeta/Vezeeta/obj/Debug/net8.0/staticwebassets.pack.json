@@ -273,10 +273,6 @@
       "PackagePath": "staticwebassets\\dist\\js\\adminlte.min.js.map"
     },
     {
-      "Id": "D:\\C#\\Vezeeta\\Veezeta\\Vezeeta\\wwwroot\\dist\\js\\demo.js",
-      "PackagePath": "staticwebassets\\dist\\js\\demo.js"
-    },
-    {
       "Id": "D:\\C#\\Vezeeta\\Veezeta\\Vezeeta\\wwwroot\\dist\\js\\pages\\dashboard.js",
       "PackagePath": "staticwebassets\\dist\\js\\pages\\dashboard.js"
     },

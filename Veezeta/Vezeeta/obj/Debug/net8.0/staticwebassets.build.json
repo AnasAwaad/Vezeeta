@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "NQrxT2VYHBIKhhv90gr5wAWb38bsKUG/b91Tf6Hqsq4=",
+  "Hash": "rsOmrEMvmKL/pajRdf8PmjD/vmtxHf8dG2mi8X1weGY=",
   "Source": "Vezeeta.Presentation",
   "BasePath": "_content/Vezeeta.Presentation",
   "Mode": "Default",
@@ -1326,25 +1326,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\dist\\js\\adminlte.min.js.map"
-    },
-    {
-      "Identity": "D:\\C#\\Vezeeta\\Veezeta\\Vezeeta\\wwwroot\\dist\\js\\demo.js",
-      "SourceId": "Vezeeta.Presentation",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\C#\\Vezeeta\\Veezeta\\Vezeeta\\wwwroot\\",
-      "BasePath": "_content/Vezeeta.Presentation",
-      "RelativePath": "dist/js/demo.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\dist\\js\\demo.js"
     },
     {
       "Identity": "D:\\C#\\Vezeeta\\Veezeta\\Vezeeta\\wwwroot\\dist\\js\\pages\\dashboard.js",

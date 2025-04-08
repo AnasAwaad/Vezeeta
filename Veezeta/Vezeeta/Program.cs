@@ -1,53 +1,73 @@
 using Bulky.DataAccess.Repository;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Vezeeta.DAL.Data;
+using Vezeeta.DAL.Seeds;
 using Vezeeta.Entities.Interfaces;
-using Vezeeta.Entities.Models;
 using Vezeeta.Presentation.Mapping;
 
 namespace Vezeeta
 {
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
-            var builder = WebApplication.CreateBuilder(args);
+	public class Program
+	{
+		public static async Task Main(string[] args)
+		{
+			var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
-            builder.Services.AddControllersWithViews();
-            builder.Services.AddDbContext<ApplicationDbContext>
-                (options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+			// Add services to the container.
+			builder.Services.AddControllersWithViews();
+			builder.Services.AddDbContext<ApplicationDbContext>
+				(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-            builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false).AddEntityFrameworkStores<ApplicationDbContext>();
-            builder.Services.AddRazorPages();
-            builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
-            builder.Services.AddAutoMapper(typeof(DomainProfile));
+			builder.Services
+				.AddIdentity<ApplicationUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = false)
+				.AddEntityFrameworkStores<ApplicationDbContext>()
+				.AddDefaultUI()
+				.AddDefaultTokenProviders();
 
-            var app = builder.Build();
 
-            // Configure the HTTP request pipeline.
-            if (!app.Environment.IsDevelopment())
-            {
-                app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
-            }
+			builder.Services.AddRazorPages();
 
-            app.UseHttpsRedirection();
-            app.UseStaticFiles();
 
-            app.UseRouting();
+			builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+			builder.Services.AddAutoMapper(typeof(DomainProfile));
 
-            app.UseAuthentication();
-            app.UseAuthorization();
+			var app = builder.Build();
 
-            app.MapRazorPages();
+			// Configure the HTTP request pipeline.
+			if (!app.Environment.IsDevelopment())
+			{
+				app.UseExceptionHandler("/Home/Error");
+				// The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+				app.UseHsts();
+			}
 
-            app.MapControllerRoute(
-                name: "default",
-                pattern: "{area=Admin}/{controller=Home}/{action=Index}/{id?}");
+			app.UseHttpsRedirection();
+			app.UseStaticFiles();
 
-            app.Run();
-        }
-    }
+			app.UseRouting();
+
+			app.UseAuthentication();
+			app.UseAuthorization();
+
+			app.MapRazorPages();
+
+
+			var scopeFactory = app.Services.GetRequiredService<IServiceScopeFactory>();
+
+			using var scope = scopeFactory.CreateScope();
+
+			var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+			var userManager = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+
+			await DefaultRoles.SeedRoles(roleManager);
+			await DefaultUsers.SeedUsers(userManager);
+
+			app.MapControllerRoute(
+				name: "default",
+				pattern: "{area=Admin}/{controller=Home}/{action=Index}/{id?}");
+
+			app.Run();
+		}
+	}
 }

@@ -1,10 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using System.ComponentModel.DataAnnotations;
 
 namespace Vezeeta.Entities.ViewModel;
 public class DoctorFormViewModel
 {
     public int Id { get; set; }
-    public string Name { get; set; } = null!;
+    public string FullName { get; set; } = null!;
     public string Address { get; set; } = null!;
     public string PhoneNumber { get; set; } = null!;
     public string Description { get; set; } = null!;
@@ -14,4 +15,14 @@ public class DoctorFormViewModel
     public IEnumerable<SelectListItem> ClinicList { get; set; } = new List<SelectListItem>();
 
     public int ClinicID { get; set; }
+
+
+    public string UserName { get; set; } = null!;
+    public string Email { get; set; } = null!;
+    public string Password { get; set; } = null!;
+
+    [Display(Name = "Confirm password")]
+    [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+    public string ConfirmPassword { get; set; } = null!;
+
 }

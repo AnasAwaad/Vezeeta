@@ -29,6 +29,7 @@ namespace Vezeeta
 			builder.Services.AddRazorPages();
 
 
+
 			builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 			builder.Services.AddAutoMapper(typeof(DomainProfile));
 
@@ -65,7 +66,7 @@ namespace Vezeeta
 
 			app.MapControllerRoute(
 				name: "default",
-				pattern: "{area=Admin}/{controller=Home}/{action=Index}/{id?}");
+				pattern: "{area=Customer}/{controller=Home}/{action=Index}/{id?}");
 
 			app.Run();
 		}

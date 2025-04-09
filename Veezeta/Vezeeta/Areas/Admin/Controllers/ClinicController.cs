@@ -1,11 +1,12 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Vezeeta.Entities.Interfaces;
-using Vezeeta.Entities.Models;
 using Vezeeta.Entities.ViewModel.Clinic;
 
 namespace Vezeeta.Presentation.Areas.Admin.Controllers;
-[Area("Admin")]
+
+[Area(AppRoles.Admin)]
+[Authorize(Roles = AppRoles.Admin)]
 public class ClinicController : Controller
 {
 	private readonly IUnitOfWork _unitOfWork;

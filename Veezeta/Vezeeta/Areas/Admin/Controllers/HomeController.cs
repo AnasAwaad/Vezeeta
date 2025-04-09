@@ -2,11 +2,13 @@
 
 namespace Vezeeta.Presentation.Areas.Admin.Controllers;
 
-[Area("Admin")]
+[Area(AppRoles.Admin)]
+[Authorize(Roles = AppRoles.Admin)]
+
 public class HomeController : Controller
 {
-    public IActionResult Index()
-    {
-        return View();
-    }
+	public IActionResult Index()
+	{
+		return View();
+	}
 }

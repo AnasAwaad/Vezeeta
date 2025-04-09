@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using Vezeeta.Entities.Interfaces;
-using Vezeeta.Entities.Models;
 using Vezeeta.Entities.ViewModel;
 
 namespace Vezeeta.Areas.Customer.Controllers
@@ -27,11 +26,11 @@ namespace Vezeeta.Areas.Customer.Controllers
 
             if (!string.IsNullOrEmpty(search))
             {
-                doctors = _unitOfWork.Doctors.GetAll(u => u.Specailized.Contains(search));
+                doctors = _unitOfWork.Doctors.GetAll(u => u.Specailized.Contains(search), properties: "User");
             }
             else
             {
-                doctors = _unitOfWork.Doctors.GetAll();
+                doctors = _unitOfWork.Doctors.GetAll(properties: "User");
             }
 
             return View(doctors);

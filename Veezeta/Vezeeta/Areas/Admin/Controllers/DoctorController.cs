@@ -30,7 +30,7 @@ namespace Vezeeta.Areas.Admin.Controllers
 
             var doctors = _unitOfWork.Doctors.GetAll(
                 filter: d => !d.IsDeleted,
-                properties: "TimeSlots,Clinic",
+                properties: "TimeSlots,Clinic,User",
                 track: false,
                 pageNumber = pageNumber,
                 pageSize = pageSize);
@@ -78,12 +78,16 @@ namespace Vezeeta.Areas.Admin.Controllers
 
                 return View("Form", viewModel);
             }
+            var doctor = _mapper.Map<Doctor>(viewModel);
+            doctor.CeatedById = User.FindFirst(ClaimTypes.NameIdentifier)!.Value;
+
 
             var user = new ApplicationUser
             {
                 FullName = viewModel.FullName,
                 UserName = viewModel.UserName,
                 Email = viewModel.Email,
+                DoctorProfile = doctor
             };
 
             var res = await _userManager.CreateAsync(user, viewModel.Password);
@@ -99,13 +103,6 @@ namespace Vezeeta.Areas.Admin.Controllers
             }
 
             await _userManager.AddToRoleAsync(user, AppRoles.Doctor);
-
-            var doctor = _mapper.Map<Doctor>(viewModel);
-            doctor.CeatedById = User.FindFirst(ClaimTypes.NameIdentifier)!.Value;
-
-            _unitOfWork.Doctors.Add(doctor);
-
-            _unitOfWork.Save();
 
             return RedirectToAction(nameof(Index));
         }

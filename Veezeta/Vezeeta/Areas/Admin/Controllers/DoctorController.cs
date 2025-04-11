@@ -170,14 +170,49 @@ namespace Vezeeta.Areas.Admin.Controllers
             // Update Doctor Info
 
             var existingDoctor = _unitOfWork.Doctors.Get(d => d.Id == viewModel.Id, "User");
-            var doctor = _mapper.Map(viewModel, existingDoctor);
-            doctor.LastUpdatedOn = DateTime.Now;
-            _unitOfWork.Doctors.Update(doctor);
+
+
+            if (viewModel.ProfileImage != null)
+            {
+                // Delete existing image if it exists
+                if (!string.IsNullOrEmpty(existingDoctor.ImagePath))
+                {
+                    var oldImagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", existingDoctor.ImagePath);
+                    if (System.IO.File.Exists(oldImagePath))
+                        System.IO.File.Delete(oldImagePath);
+                }
+
+                // Save new image
+                string fileName = Guid.NewGuid().ToString() + Path.GetExtension(viewModel.ProfileImage.FileName);
+                string uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/Doctor");
+
+                if (!Directory.Exists(uploadPath))
+                    Directory.CreateDirectory(uploadPath);
+
+                var filePath = Path.Combine(uploadPath, fileName);
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await viewModel.ProfileImage.CopyToAsync(stream);
+                }
+
+                // Save image path to database
+                viewModel.ImagePath = Path.Combine("images", "Doctor", fileName);
+            }
+            else
+            {
+                viewModel.ImagePath = existingDoctor.ImagePath;
+            }
+
+            _mapper.Map(viewModel, existingDoctor);
+            existingDoctor.LastUpdatedOn = DateTime.Now;
+
+
+            _unitOfWork.Doctors.Update(existingDoctor);
             _unitOfWork.Save();
 
 
             // Update User Info
-            var user = doctor.User;
+            var user = existingDoctor.User;
             if (user != null)
             {
                 user.PhoneNumber = viewModel.PhoneNumber;

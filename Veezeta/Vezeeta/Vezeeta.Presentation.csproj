@@ -30,8 +30,4 @@
     <ProjectReference Include="..\Model\Vezeeta.Entities.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="wwwroot\images\Doctor\" />
-  </ItemGroup>
-
 </Project>

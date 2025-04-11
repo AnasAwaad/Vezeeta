@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "tkb0uBBlp/KtkpHWw2geqb0xtHkmZHjURm76yt8/FFg=",
+  "Hash": "vkysyV5tB+EF3KjZsFevLzIDId/AbE2iwQ9HZNvI7v0=",
   "Source": "Vezeeta.Presentation",
   "BasePath": "_content/Vezeeta.Presentation",
   "Mode": "Default",
@@ -2542,6 +2542,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "D:\\C#\\Vezeeta\\Veezeta\\Vezeeta\\wwwroot\\images\\Doctor\\7adc3918-8d4d-4ec3-8eb4-5b5a476d2bd4.PNG",
+      "SourceId": "Vezeeta.Presentation",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\C#\\Vezeeta\\Veezeta\\Vezeeta\\wwwroot\\",
+      "BasePath": "_content/Vezeeta.Presentation",
+      "RelativePath": "images/Doctor/7adc3918-8d4d-4ec3-8eb4-5b5a476d2bd4.PNG",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\Doctor\\7adc3918-8d4d-4ec3-8eb4-5b5a476d2bd4.PNG"
     },
     {
       "Identity": "D:\\C#\\Vezeeta\\Veezeta\\Vezeeta\\wwwroot\\images\\Doctor\\doctor.svg",

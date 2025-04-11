@@ -1,4 +1,4 @@
-﻿namespace Vezeeta.Entities.ViewModel.Clinic;
+﻿namespace Vezeeta.Presentation.ViewModel.Clinic;
 public class ClinicFormViewModel
 {
 	public int? Id { get; set; }

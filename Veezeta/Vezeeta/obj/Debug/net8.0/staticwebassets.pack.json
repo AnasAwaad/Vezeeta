@@ -525,6 +525,14 @@
       "PackagePath": "staticwebassets\\lib\\datatables\\js\\jquery.dataTables.min.js"
     },
     {
+      "Id": "D:\\C#\\Vezeeta\\Veezeta\\Vezeeta\\wwwroot\\lib\\expressive-annotations-validate\\expressive.annotations.validate.js",
+      "PackagePath": "staticwebassets\\lib\\expressive-annotations-validate\\expressive.annotations.validate.js"
+    },
+    {
+      "Id": "D:\\C#\\Vezeeta\\Veezeta\\Vezeeta\\wwwroot\\lib\\expressive-annotations-validate\\expressive.annotations.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\expressive-annotations-validate\\expressive.annotations.validate.min.js"
+    },
+    {
       "Id": "D:\\C#\\Vezeeta\\Veezeta\\Vezeeta\\wwwroot\\lib\\jquery-ajax-unobtrusive\\jquery.unobtrusive-ajax.js",
       "PackagePath": "staticwebassets\\lib\\jquery-ajax-unobtrusive\\jquery.unobtrusive-ajax.js"
     },

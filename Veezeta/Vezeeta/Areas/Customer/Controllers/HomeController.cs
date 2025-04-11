@@ -1,59 +1,59 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using Vezeeta.Entities.Interfaces;
-using Vezeeta.Entities.ViewModel;
+using Vezeeta.Presentation.ViewModel;
 
 namespace Vezeeta.Areas.Customer.Controllers
 {
 
-    [Area("Customer")]
-    public class HomeController : Controller
-    {
-        private readonly ILogger<HomeController> _logger;
-        private readonly IUnitOfWork _unitOfWork;
+	[Area("Customer")]
+	public class HomeController : Controller
+	{
+		private readonly ILogger<HomeController> _logger;
+		private readonly IUnitOfWork _unitOfWork;
 
 
-        public HomeController(IUnitOfWork unitOfWork, ILogger<HomeController> logger)
-        {
-            _logger = logger;
-            _unitOfWork = unitOfWork;
+		public HomeController(IUnitOfWork unitOfWork, ILogger<HomeController> logger)
+		{
+			_logger = logger;
+			_unitOfWork = unitOfWork;
 
-        }
+		}
 
-        public IActionResult Index(string? search)
-        {
-            IEnumerable<Doctor> doctors;
+		public IActionResult Index(string? search)
+		{
+			IEnumerable<Doctor> doctors;
 
-            if (!string.IsNullOrEmpty(search))
-            {
-                doctors = _unitOfWork.Doctors.GetAll(u => u.Specailized.Contains(search), properties: "User");
-            }
-            else
-            {
-                doctors = _unitOfWork.Doctors.GetAll(properties: "User");
-            }
+			if (!string.IsNullOrEmpty(search))
+			{
+				doctors = _unitOfWork.Doctors.GetAll(u => u.Specailized.Contains(search), properties: "User");
+			}
+			else
+			{
+				doctors = _unitOfWork.Doctors.GetAll(properties: "User");
+			}
 
-            return View(doctors);
-        }
+			return View(doctors);
+		}
 
-        public IActionResult Details(int id)
-        {
-            var times = _unitOfWork.TimeSlots.GetAll(u => u.DoctorId == id, properties: "Doctor");
-            return View(times);
+		public IActionResult Details(int id)
+		{
+			var times = _unitOfWork.TimeSlots.GetAll(u => u.DoctorId == id, properties: "Doctor");
+			return View(times);
 
-        }
+		}
 
 
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
+		public IActionResult Privacy()
+		{
+			return View();
+		}
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
-    }
+		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+		public IActionResult Error()
+		{
+			return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+		}
+	}
 }

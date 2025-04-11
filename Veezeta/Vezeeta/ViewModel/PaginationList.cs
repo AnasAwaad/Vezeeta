@@ -1,4 +1,4 @@
-﻿namespace Vezeeta.Entities.ViewModel;
+﻿namespace Vezeeta.Presentation.ViewModel;
 public class PaginatedList<T>
 {
 	public IEnumerable<T> Items { get; private set; }

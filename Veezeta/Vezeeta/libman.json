@@ -40,5 +40,11 @@
     "js/dataTables.bootstrap4.min.js"
   ]
 }
+,
+{
+  "provider": "cdnjs",
+  "library": "expressive-annotations-validate@2.7.0",
+  "destination": "wwwroot/lib/expressive-annotations-validate/"
+}
 ]
 }

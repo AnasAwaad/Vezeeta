@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Vezeeta.Entities.Interfaces;
-using Vezeeta.Entities.ViewModel.Clinic;
+using Vezeeta.Presentation.ViewModel.Clinic;
 
 namespace Vezeeta.Presentation.Areas.Admin.Controllers;
 

@@ -1,4 +1,4 @@
-﻿namespace Vezeeta.Entities.ViewModel;
+﻿namespace Vezeeta.Presentation.ViewModel;
 public class DoctorViewModel
 {
     public int Id { get; set; }

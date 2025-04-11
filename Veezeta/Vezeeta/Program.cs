@@ -1,6 +1,7 @@
 using Bulky.DataAccess.Repository;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using UoN.ExpressiveAnnotations.NetCore.DependencyInjection;
 using Vezeeta.DAL.Data;
 using Vezeeta.DAL.Seeds;
 using Vezeeta.Entities.Interfaces;
@@ -27,6 +28,9 @@ namespace Vezeeta
 
 
 			builder.Services.AddRazorPages();
+
+			// Register ExpressiveAnnotations
+			builder.Services.AddExpressiveAnnotations();
 
 
 

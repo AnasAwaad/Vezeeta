@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "QnZpHE1oMsUZwnW0Q9VulOJuksSE16BWNGImJIODg0E=",
+  "Hash": "MpScwsu7BXqSlKDHtP8NtReKC7v7gNRJpXnsGCEkE0E=",
   "Source": "Vezeeta.Presentation",
   "BasePath": "_content/Vezeeta.Presentation",
   "Mode": "Default",
@@ -2561,6 +2561,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\Doctor\\018d8baa-0f6a-46ba-8d71-b7f33b3b4426.PNG"
+    },
+    {
+      "Identity": "D:\\C#\\Vezeeta\\Veezeta\\Vezeeta\\wwwroot\\images\\Doctor\\3132d885-2013-43dc-9a56-e6278e5133a0.PNG",
+      "SourceId": "Vezeeta.Presentation",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\C#\\Vezeeta\\Veezeta\\Vezeeta\\wwwroot\\",
+      "BasePath": "_content/Vezeeta.Presentation",
+      "RelativePath": "images/Doctor/3132d885-2013-43dc-9a56-e6278e5133a0.PNG",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\Doctor\\3132d885-2013-43dc-9a56-e6278e5133a0.PNG"
     },
     {
       "Identity": "D:\\C#\\Vezeeta\\Veezeta\\Vezeeta\\wwwroot\\images\\Doctor\\6eecc09d-b91a-494e-af0f-c0298b596c45.PNG",

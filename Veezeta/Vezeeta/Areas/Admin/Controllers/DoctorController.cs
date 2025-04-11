@@ -262,7 +262,7 @@ namespace Vezeeta.Areas.Admin.Controllers
 
         public IActionResult Details(int id)
         {
-            var doctor = _unitOfWork.Doctors.GetById(id);
+            var doctor = _unitOfWork.Doctors.Get(d => d.Id == id, properties: "User,Clinic");
             if (doctor == null)
                 return NotFound();
 

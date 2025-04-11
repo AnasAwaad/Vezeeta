@@ -1,0 +1,197 @@
+﻿@model DoctorFormViewModel
+
+@{
+    var createOrUpdate = $"{(Model.Id.Equals(0) ? "Create" : "Update")} Doctor";
+    ViewData["Title"] = createOrUpdate;
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>@createOrUpdate</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Doctors" asp-action="Index">Doctors</a></li>
+                    <li class="breadcrumb-item active">@createOrUpdate</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="content">
+    <div class="container-fluid">
+        <form method="post" asp-action="@(Model.Id.Equals(0) ? "Create" : "Update")" enctype="multipart/form-data">
+            <input asp-for="Id" type="hidden" />
+
+            <div class="row">
+                <div class="col-md-6">
+                    <!-- Basic Details Card -->
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h3 class="card-title">Basic Details</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label asp-for="FirstName">First Name <span class="text-danger">*</span></label>
+                                <input asp-for="FirstName" class="form-control" placeholder="Dr. Mudasser">
+                                <span asp-validation-for="FirstName" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="LastName">Last Name <span class="text-danger">*</span></label>
+                                <input asp-for="LastName" class="form-control" placeholder="Awaad">
+                                <span asp-validation-for="LastName" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputFile">Image</label>
+                                <div class="input-group">
+                                    <div class="custom-file">
+                                        <input asp-for="ProfileImage" type="file" class="custom-file-input" id="exampleInputFile">
+                                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                    </div>
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">Upload</span>
+                                    </div>
+                                </div>
+                                <span asp-validation-for="ProfileImage" class="text-danger"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label asp-for="About">About</label>
+                                <textarea asp-for="About" class="form-control" rows="4"
+                                          placeholder="Brief professional bio, qualifications, etc."></textarea>
+                                <span asp-validation-for="About" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="ClinicId">Select Clinic <span class="text-danger">*</span></label>
+                                <select asp-for="ClinicId" class="form-control select2" asp-items="@Model.ClinicList">
+                                    <option selected disabled>Select Clinic</option>
+                                </select>
+                                <span asp-validation-for="ClinicId" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="Specialized">Specialization<span class="text-danger">*</span></label>
+                                <input asp-for="Specialized" class="form-control" placeholder="specialization">
+                                <span asp-validation-for="Specialized" class="text-danger"></span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <!-- Contact Information Card -->
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h3 class="card-title">Contact Information</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label asp-for="Email">Email <span class="text-danger">*</span></label>
+                                <input asp-for="Email" class="form-control" placeholder="doctor@gmail.com">
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="PhoneNumber">Contact No <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">+20</span>
+                                    </div>
+                                    <input asp-for="PhoneNumber" class="form-control" placeholder="1067873327">
+                                </div>
+                                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Address">Address <span class="text-danger">*</span></label>
+                                <input asp-for="Address" class="form-control" placeholder="Full address including city and postal code"/>
+                                <span asp-validation-for="Address" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="ExperienceYears">Experience (in Years) <span class="text-danger">*</span></label>
+                                <input asp-for="ExperienceYears" class="form-control" placeholder="6">
+                                <span asp-validation-for="ExperienceYears" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Status <span class="text-danger">*</span></label>
+                                <div class="custom-control custom-switch">
+                                    <input asp-for="IsDeleted" type="checkbox" class="custom-control-input" id="statusSwitch">
+                                    <label class="custom-control-label" for="statusSwitch">Deleted</label>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Account Information Card -->
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h3 class="card-title">Account Information</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label asp-for="UserName">Username <span class="text-danger">*</span></label>
+                                <input asp-for="UserName" class="form-control" placeholder="Enter username">
+                                <span asp-validation-for="UserName" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="Password">Password <span class="text-danger">*</span></label>
+                                <input asp-for="Password" class="form-control" placeholder="Enter password">
+                                <span asp-validation-for="Password" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="ConfirmPassword">Confirm Password <span class="text-danger">*</span></label>
+                                <input asp-for="ConfirmPassword" class="form-control" placeholder="Confirm password">
+                                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row pb-4">
+                <div class="col-12">
+                    <a asp-area="Admin" asp-controller="Doctor" asp-action="Index" class="btn btn-secondary">Cancel</a>
+                    <button type="submit" class="btn btn-success float-right">
+                        <i class="fas fa-save"></i> @createOrUpdate
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+@section Styles {
+    <link rel="stylesheet" href="~/plugins/select2/css/select2.min.css">
+    <link rel="stylesheet" href="~/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    @* <script src="~/plugins/select2/js/select2.full.min.js"></script> *@
+    @* <script>
+        $(document).ready(function () {
+            // Initialize Select2 for clinic and specialization
+            $('.select2').select2({
+                theme: 'bootstrap4',
+                tags: true // For specialization to allow adding new items
+            });
+
+            // Date picker for DOB
+            $('input[placeholder="mm/dd/yyyy"]').datepicker({
+                format: 'mm/dd/yyyy',
+                autoclose: true
+            });
+        });
+    </script> *@
+}

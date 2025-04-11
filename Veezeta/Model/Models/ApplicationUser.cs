@@ -3,11 +3,8 @@
 namespace Vezeeta.Entities.Models;
 public class ApplicationUser : IdentityUser
 {
-    public string FullName { get; set; } = null!;
-    public bool IsDeleted { get; set; }
-    public DateTime CreatedOn { get; set; } = DateTime.Now;
-    public DateTime? LastUpdatedOn { get; set; }
-
-    public int? DoctorProfileId { get; set; }
-    public Doctor? DoctorProfile { get; set; }
+	public bool IsDeleted { get; set; }
+	public DateTime CreatedOn { get; set; } = DateTime.Now;
+	public DateTime? LastUpdatedOn { get; set; }
+	public Doctor DoctorProfile { get; set; } = null!;
 }

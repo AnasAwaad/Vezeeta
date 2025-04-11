@@ -11,10 +11,10 @@
 ) ? Url.Content("~/images/Doctor/doctor.svg") : doctor.ImagePath)"
 						 class="card-img-top" alt="Doctor Image">
 					<div class="card-body">
-						<h5 class="card-title">Dr. @doctor.User.FullName</h5>
+						<h5 class="card-title">Dr. @doctor.FirstName</h5>
 						<p class="card-text"><strong>Specialty:</strong> @doctor.</p>
-						<p class="card-text"><strong>Price:</strong> $@doctor.Price</p>
-						<p class="card-text"><strong>Description:</strong> @doctor.Description</p>
+						@* <p class="card-text"><strong>Price:</strong> $@doctor.Price</p> *@
+						<p class="card-text"><strong>Description:</strong> @doctor.About</p>
 					</div>
 				</div>
 			}

@@ -26,7 +26,7 @@ namespace Vezeeta.Areas.Customer.Controllers
 
 			if (!string.IsNullOrEmpty(search))
 			{
-				doctors = _unitOfWork.Doctors.GetAll(u => u.Specailized.Contains(search), properties: "User");
+				doctors = _unitOfWork.Doctors.GetAll(u => u.Specialized.Contains(search), properties: "User");
 			}
 			else
 			{

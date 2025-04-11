@@ -84,7 +84,6 @@ namespace Vezeeta.Areas.Admin.Controllers
 
 			var user = new ApplicationUser
 			{
-				FullName = viewModel.FullName,
 				UserName = viewModel.UserName,
 				Email = viewModel.Email,
 				DoctorProfile = doctor
@@ -157,7 +156,6 @@ namespace Vezeeta.Areas.Admin.Controllers
 			var user = doctor.User;
 			if (user != null)
 			{
-				user.FullName = viewModel.FullName;
 				user.UserName = viewModel.UserName;
 				user.Email = viewModel.Email;
 

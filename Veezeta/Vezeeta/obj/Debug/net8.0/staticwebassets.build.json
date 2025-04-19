@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "MpScwsu7BXqSlKDHtP8NtReKC7v7gNRJpXnsGCEkE0E=",
+  "Hash": "ffhfZsysk5x6WLwElaM1pgCaKPSrDckxcUvIiJP9r/E=",
   "Source": "Vezeeta.Presentation",
   "BasePath": "_content/Vezeeta.Presentation",
   "Mode": "Default",
@@ -2582,6 +2582,25 @@
       "OriginalItemSpec": "wwwroot\\images\\Doctor\\3132d885-2013-43dc-9a56-e6278e5133a0.PNG"
     },
     {
+      "Identity": "D:\\C#\\Vezeeta\\Veezeta\\Vezeeta\\wwwroot\\images\\Doctor\\5faa99c8-242e-4569-acaf-e3ecf36cb954.jpg",
+      "SourceId": "Vezeeta.Presentation",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\C#\\Vezeeta\\Veezeta\\Vezeeta\\wwwroot\\",
+      "BasePath": "_content/Vezeeta.Presentation",
+      "RelativePath": "images/Doctor/5faa99c8-242e-4569-acaf-e3ecf36cb954.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\Doctor\\5faa99c8-242e-4569-acaf-e3ecf36cb954.jpg"
+    },
+    {
       "Identity": "D:\\C#\\Vezeeta\\Veezeta\\Vezeeta\\wwwroot\\images\\Doctor\\6eecc09d-b91a-494e-af0f-c0298b596c45.PNG",
       "SourceId": "Vezeeta.Presentation",
       "SourceType": "Discovered",
@@ -2715,12 +2734,12 @@
       "OriginalItemSpec": "wwwroot\\images\\Doctor\\bcf91a8b-423a-4f9a-94d1-1aa22a6bcb91.PNG"
     },
     {
-      "Identity": "D:\\C#\\Vezeeta\\Veezeta\\Vezeeta\\wwwroot\\images\\Doctor\\doctor.svg",
+      "Identity": "D:\\C#\\Vezeeta\\Veezeta\\Vezeeta\\wwwroot\\images\\Doctor\\e693f33f-0abc-4dc2-8cf6-14b1348f9cee.PNG",
       "SourceId": "Vezeeta.Presentation",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\C#\\Vezeeta\\Veezeta\\Vezeeta\\wwwroot\\",
       "BasePath": "_content/Vezeeta.Presentation",
-      "RelativePath": "images/Doctor/doctor.svg",
+      "RelativePath": "images/Doctor/e693f33f-0abc-4dc2-8cf6-14b1348f9cee.PNG",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -2731,7 +2750,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\Doctor\\doctor.svg"
+      "OriginalItemSpec": "wwwroot\\images\\Doctor\\e693f33f-0abc-4dc2-8cf6-14b1348f9cee.PNG"
     },
     {
       "Identity": "D:\\C#\\Vezeeta\\Veezeta\\Vezeeta\\wwwroot\\images\\Doctor\\f92f5c91-87e8-43e5-a6d6-9602f6701778.PNG",

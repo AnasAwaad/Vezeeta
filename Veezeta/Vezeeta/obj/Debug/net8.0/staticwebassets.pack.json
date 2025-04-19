@@ -297,6 +297,10 @@
       "PackagePath": "staticwebassets\\images\\Doctor\\3132d885-2013-43dc-9a56-e6278e5133a0.PNG"
     },
     {
+      "Id": "D:\\C#\\Vezeeta\\Veezeta\\Vezeeta\\wwwroot\\images\\Doctor\\5faa99c8-242e-4569-acaf-e3ecf36cb954.jpg",
+      "PackagePath": "staticwebassets\\images\\Doctor\\5faa99c8-242e-4569-acaf-e3ecf36cb954.jpg"
+    },
+    {
       "Id": "D:\\C#\\Vezeeta\\Veezeta\\Vezeeta\\wwwroot\\images\\Doctor\\6eecc09d-b91a-494e-af0f-c0298b596c45.PNG",
       "PackagePath": "staticwebassets\\images\\Doctor\\6eecc09d-b91a-494e-af0f-c0298b596c45.PNG"
     },
@@ -325,8 +329,8 @@
       "PackagePath": "staticwebassets\\images\\Doctor\\bcf91a8b-423a-4f9a-94d1-1aa22a6bcb91.PNG"
     },
     {
-      "Id": "D:\\C#\\Vezeeta\\Veezeta\\Vezeeta\\wwwroot\\images\\Doctor\\doctor.svg",
-      "PackagePath": "staticwebassets\\images\\Doctor\\doctor.svg"
+      "Id": "D:\\C#\\Vezeeta\\Veezeta\\Vezeeta\\wwwroot\\images\\Doctor\\e693f33f-0abc-4dc2-8cf6-14b1348f9cee.PNG",
+      "PackagePath": "staticwebassets\\images\\Doctor\\e693f33f-0abc-4dc2-8cf6-14b1348f9cee.PNG"
     },
     {
       "Id": "D:\\C#\\Vezeeta\\Veezeta\\Vezeeta\\wwwroot\\images\\Doctor\\f92f5c91-87e8-43e5-a6d6-9602f6701778.PNG",

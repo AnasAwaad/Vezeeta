@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 using Vezeeta.Entities.Interfaces;
 using Vezeeta.Presentation.ViewModel.Clinic;
 
@@ -9,85 +10,92 @@ namespace Vezeeta.Presentation.Areas.Admin.Controllers;
 [Authorize(Roles = AppRoles.Admin)]
 public class ClinicController : Controller
 {
-	private readonly IUnitOfWork _unitOfWork;
-	private readonly IMapper _mapper;
+    private readonly IUnitOfWork _unitOfWork;
+    private readonly IMapper _mapper;
 
-	public ClinicController(IUnitOfWork unitOfWork, IMapper mapper)
-	{
-		_unitOfWork = unitOfWork;
-		_mapper = mapper;
-	}
+    public ClinicController(IUnitOfWork unitOfWork, IMapper mapper)
+    {
+        _unitOfWork = unitOfWork;
+        _mapper = mapper;
+    }
 
-	public IActionResult Index()
-	{
-		var clinics = _unitOfWork.Clinics.GetAll();
+    public IActionResult Index()
+    {
+        var clinics = _unitOfWork.Clinics.GetAll();
 
-		var viewModel = _mapper.Map<IEnumerable<ClinicFormViewModel>>(clinics);
+        var viewModel = _mapper.Map<IEnumerable<ClinicFormViewModel>>(clinics);
 
-		return View(viewModel);
-	}
-
-
-	public IActionResult Create()
-	{
-		return PartialView("_Form");
-	}
-
-	[HttpPost]
-	//[ValidateAntiForgeryToken]
-	public IActionResult Create(ClinicFormViewModel viewModel)
-	{
-		if (!ModelState.IsValid)
-		{
-			return BadRequest();
-		}
-
-		var clinic = _mapper.Map<Clinic>(viewModel);
-		_unitOfWork.Clinics.Add(clinic);
-
-		_unitOfWork.Save();
-
-		return PartialView("_ClinicRow", _mapper.Map<ClinicFormViewModel>(clinic));
-	}
+        return View(viewModel);
+    }
 
 
-	public IActionResult Update(int id)
-	{
-		var clinic = _unitOfWork.Clinics.GetById(id);
-		return PartialView("_Form", _mapper.Map<ClinicFormViewModel>(clinic));
-	}
+    public IActionResult Create()
+    {
+        return PartialView("_Form");
+    }
 
-	[HttpPost]
-	//[ValidateAntiForgeryToken]
-	public IActionResult Update(ClinicFormViewModel viewModel)
-	{
-		if (!ModelState.IsValid)
-		{
-			return BadRequest();
-		}
+    [HttpPost]
+    //[ValidateAntiForgeryToken]
+    public IActionResult Create(ClinicFormViewModel viewModel)
+    {
+        if (!ModelState.IsValid)
+        {
+            return BadRequest();
+        }
 
-		var clinic = _mapper.Map<Clinic>(viewModel);
-		clinic.LastUpdatedOn = DateTime.Now;
+        var clinic = _mapper.Map<Clinic>(viewModel);
+        clinic.CeatedById = User.FindFirst(ClaimTypes.NameIdentifier)!.Value;
 
-		_unitOfWork.Clinics.Update(clinic);
+        _unitOfWork.Clinics.Add(clinic);
 
-		_unitOfWork.Save();
+        _unitOfWork.Save();
+
+        return PartialView("_ClinicRow", _mapper.Map<ClinicFormViewModel>(clinic));
+    }
 
 
-		return PartialView("_ClinicRow", _mapper.Map<ClinicFormViewModel>(clinic));
-	}
+    public IActionResult Update(int id)
+    {
+        var clinic = _unitOfWork.Clinics.GetById(id);
+        return PartialView("_Form", _mapper.Map<ClinicFormViewModel>(clinic));
+    }
 
-	[HttpPost]
-	public IActionResult ToggleStatus(int id)
-	{
-		var clinic = _unitOfWork.Clinics.GetById(id);
-		if (clinic is null)
-			return NotFound();
-		clinic.IsDeleted = !clinic.IsDeleted;
-		clinic.LastUpdatedOn = DateTime.Now;
+    [HttpPost]
+    //[ValidateAntiForgeryToken]
+    public IActionResult Update(ClinicFormViewModel viewModel)
+    {
+        if (!ModelState.IsValid)
+        {
+            return BadRequest();
+        }
+        var clinic = _unitOfWork.Clinics.GetById(viewModel.Id!.Value);
+        if (clinic is null)
+            return NotFound();
 
-		_unitOfWork.Save();
+        _mapper.Map(viewModel, clinic);
 
-		return PartialView("_ClinicRow", _mapper.Map<ClinicFormViewModel>(clinic));
-	}
+        clinic.LastUpdatedOn = DateTime.Now;
+        clinic.LastUpdatedById = User.FindFirst(ClaimTypes.NameIdentifier)!.Value;
+
+        _unitOfWork.Clinics.Update(clinic);
+
+        _unitOfWork.Save();
+
+
+        return PartialView("_ClinicRow", _mapper.Map<ClinicFormViewModel>(clinic));
+    }
+
+    [HttpPost]
+    public IActionResult ToggleStatus(int id)
+    {
+        var clinic = _unitOfWork.Clinics.GetById(id);
+        if (clinic is null)
+            return NotFound();
+        clinic.IsDeleted = !clinic.IsDeleted;
+        clinic.LastUpdatedOn = DateTime.Now;
+
+        _unitOfWork.Save();
+
+        return PartialView("_ClinicRow", _mapper.Map<ClinicFormViewModel>(clinic));
+    }
 }

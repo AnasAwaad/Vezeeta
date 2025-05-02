@@ -5670,19 +5670,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Anoos\\.nuget\\packages\\": {}
+    "C:\\Users\\LaLaStore\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\C#\\Vezeeta\\Veezeta\\DataAccessLayer\\Vezeeta.DAL.csproj",
+      "projectUniqueName": "E:\\vezeeta\\Veezeta\\DataAccessLayer\\Vezeeta.DAL.csproj",
       "projectName": "Vezeeta.DAL",
-      "projectPath": "D:\\C#\\Vezeeta\\Veezeta\\DataAccessLayer\\Vezeeta.DAL.csproj",
-      "packagesPath": "C:\\Users\\Anoos\\.nuget\\packages\\",
-      "outputPath": "D:\\C#\\Vezeeta\\Veezeta\\DataAccessLayer\\obj\\",
+      "projectPath": "E:\\vezeeta\\Veezeta\\DataAccessLayer\\Vezeeta.DAL.csproj",
+      "packagesPath": "C:\\Users\\LaLaStore\\.nuget\\packages\\",
+      "outputPath": "E:\\vezeeta\\Veezeta\\DataAccessLayer\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Anoos\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\LaLaStore\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5696,8 +5701,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\C#\\Vezeeta\\Veezeta\\Model\\Vezeeta.Entities.csproj": {
-              "projectPath": "D:\\C#\\Vezeeta\\Veezeta\\Model\\Vezeeta.Entities.csproj"
+            "E:\\vezeeta\\Veezeta\\Model\\Vezeeta.Entities.csproj": {
+              "projectPath": "E:\\vezeeta\\Veezeta\\Model\\Vezeeta.Entities.csproj"
             }
           }
         }
@@ -5711,7 +5716,8 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      }
+      },
+      "SdkAnalysisLevel": "9.0.200"
     },
     "frameworks": {
       "net8.0": {
@@ -5758,7 +5764,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.206/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

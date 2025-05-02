@@ -1,15 +1,13 @@
-﻿@model List<TimeSlot>
+﻿@model Doctor
 
 <div class="container mt-4">
 	<div class="row">
 		<div class="col-md-6">
-			@if (Model.Any())
+			@if (Model is not null)
 			{
-				var doctor = Model.First().Doctor;
+				var doctor = Model;
 				<div class="card shadow-sm p-3 mb-4 bg-body rounded">
-					<img src="@(string.IsNullOrEmpty(doctor.ImagePath
-) ? Url.Content("~/images/Doctor/doctor.svg") : doctor.ImagePath)"
-						 class="card-img-top" alt="Doctor Image">
+					<img src="~/@Model.ImagePath" class="card-img-top" alt="Doctor Image">
 					<div class="card-body">
 						<h5 class="card-title">Dr. @doctor.FirstName</h5>
 						<p class="card-text"><strong>Specialty:</strong> @doctor.</p>
@@ -34,9 +32,9 @@
 						</tr>
 					</thead>
 					<tbody>
-						@if (Model.Any())
+						@if (Model is not null)
 						{
-							@foreach (var slot in Model)
+							@foreach (var slot in Model.TimeSlots)
 							{
 								<tr>
 									<td>

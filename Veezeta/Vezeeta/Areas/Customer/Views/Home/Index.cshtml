@@ -1,67 +1,57 @@
 ﻿@model List<Doctor>
+
 <div class="container mt-4">
-    <div class="row pb-3">
-        <section id="search" class="text-center" style="display: flex; justify-content: center; align-items: center; width: 100%;">
-            <form asp-action="Index" method="get" class="d-flex justify-content-center align-items-center w-100">
-                <input type="text" name="search" list="searchTopics" placeholder="Search By Specialty" class="form-control w-50" style="max-width: 600px;">
-                <button type="submit" class="btn btn-primary ms-2">Search</button>
-                <datalist id="searchTopics">
-                    @foreach (var spec in Model)
-                    {
-                        <option value="@spec.Specialized">@spec.Specialized</option>
-                    }
-                </datalist>
-            </form>
-        </section>
-    </div>
-    <div class="row pb-3">
-        
+    <section id="search" class="text-center mb-4">
+        <form asp-action="Index" method="get" class="d-flex justify-content-center align-items-center flex-wrap gap-2">
+            <input type="text" name="search" list="searchTopics" placeholder="Search By Specialty"
+                   class="form-control" style="max-width: 400px;">
+            <button type="submit" class="btn btn-primary">Search</button>
+            <datalist id="searchTopics">
+                @foreach (var spec in Model)
+                {
+                    <option value="@spec.Specialized">@spec.Specialized</option>
+                }
+            </datalist>
+        </form>
+    </section>
+
+    <div class="row">
         @foreach (var doc in Model)
         {
-            <div class="col-lg-3 col-sm-6">
-                <div class="row p-2">
-                    <div class="col-12 p-1">
-                        <div class="card border-0 p-3 shadow border-top border-5 rounded">
-                            @if (string.IsNullOrEmpty(doc.ImagePath))
-                            {
-                                <img src="~/images/Doctor/doctor.svg" class="card-img-top rounded" alt="@doc.About">
-                            }
-                            else
-                            {
-                                <img src="@doc.ImagePath" class="card-img-top rounded" alt="@doc.About">
-                            }
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="card h-100 border-0 shadow rounded-4 text-center p-3">
+                    <div class="mx-auto mb-3" style="width: 120px; height: 120px; overflow: hidden; border-radius: 50%;">
+                        @if (string.IsNullOrEmpty(doc.ImagePath))
+                        {
+                            <img src="~/images/Doctor/doctor.svg"
+                                 style="width: 100%; height: 100%; object-fit: cover; object-position: top;"
+                                 alt="@doc.About" />
+                        }
+                        else
+                        {
+                            <img src="@doc.ImagePath"
+                                 style="width: 100%; height: 100%; object-fit: cover; object-position: top;"
+                                 alt="@doc.About" />
+                        }
+                    </div>
 
-                            <div class="card-body pb-0">
-                                <div class="pl-1">
-                                    <p class="card-title h5 text-danger opacity-75 text-uppercase text-center">
-                                        @doc.FirstName
-                                    </p>
-                                    <p class="card-title text-warning text-center">
-                                        <b>@doc.About</b>
-                                    </p>
-                                </div>
-                                <div class="pl-1">
-                                    <p class="text-danger text-opacity-75 text-center">
-                                        List Price:
-                                        <span class="text-decoration-line-through mb-0">
-                                            @* @doc.Price.ToString("c") *@
-                                        </span>
-                                    </p>
-                                </div>
-                                <div class="pl-1">
-                                    <p class="text-danger text-opacity-75 text-center">
-                                        As low as: <span>@doc.About</span>
-                                    </p>
-                                </div>
-                            </div>
-                            <div>
-                                <a asp-action="Details"
-                                   asp-route-id="@doc.Id"
-                                   class="btn btn-primary btn-gradient border-0 form-control">
-                                    Details
-                                </a>
-                            </div>
-                        </div>
+                    <div class="card-body p-0">
+                        <h5 class="text-danger text-uppercase fw-bold">@doc.FirstName</h5>
+                        <p class="text-muted fw-semibold mb-2">@doc.About</p>
+
+                        <p class="mb-1 text-secondary small">
+                            <span class="text-decoration-line-through">List Price</span>
+                        </p>
+                        <p class="text-primary small">
+                            As low as: <span>@doc.About</span>
+                        </p>
+                    </div>
+
+                    <div class="mt-auto">
+                        <a asp-action="Details" asp-route-id="@doc.Id"
+                           class="btn btn-outline-primary w-100 mt-3">
+                            View Details
+                        </a>
                     </div>
                 </div>
             </div>

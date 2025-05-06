@@ -26,8 +26,8 @@ namespace Vezeeta.Areas.Customer.Controllers
 
 			if (!string.IsNullOrEmpty(search))
 			{
-				doctors = _unitOfWork.Doctors.GetAll(u => u.Specialized.Contains(search), properties: "User");
-			}
+                doctors = _unitOfWork.Doctors.GetAll(d => d.Specialized.Contains(search) || d.FirstName.Contains(search) || d.LastName.Contains(search), properties: "User");
+            }
 			else
 			{
 				doctors = _unitOfWork.Doctors.GetAll(properties: "User");
@@ -38,7 +38,7 @@ namespace Vezeeta.Areas.Customer.Controllers
 
 		public IActionResult Details(int id)
 		{
-			var times = _unitOfWork.TimeSlots.GetAll(u => u.DoctorId == id, properties: "Doctor");
+			var times = _unitOfWork.Doctors.GetById(id);
 			return View(times);
 
 		}

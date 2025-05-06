@@ -4071,19 +4071,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Anoos\\.nuget\\packages\\": {}
+    "C:\\Users\\LaLaStore\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\C#\\Vezeeta\\Veezeta\\Model\\Vezeeta.Entities.csproj",
+      "projectUniqueName": "E:\\vezeeta\\Veezeta\\Model\\Vezeeta.Entities.csproj",
       "projectName": "Vezeeta.Entities",
-      "projectPath": "D:\\C#\\Vezeeta\\Veezeta\\Model\\Vezeeta.Entities.csproj",
-      "packagesPath": "C:\\Users\\Anoos\\.nuget\\packages\\",
-      "outputPath": "D:\\C#\\Vezeeta\\Veezeta\\Model\\obj\\",
+      "projectPath": "E:\\vezeeta\\Veezeta\\Model\\Vezeeta.Entities.csproj",
+      "packagesPath": "C:\\Users\\LaLaStore\\.nuget\\packages\\",
+      "outputPath": "E:\\vezeeta\\Veezeta\\Model\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Anoos\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\LaLaStore\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4108,7 +4113,8 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      }
+      },
+      "SdkAnalysisLevel": "9.0.200"
     },
     "frameworks": {
       "net8.0": {
@@ -4149,7 +4155,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.206/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
